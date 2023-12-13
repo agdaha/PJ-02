@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"log"
 	"sync"
 )
 
@@ -12,6 +13,7 @@ func Consumer(input <-chan int) {
 		defer wg.Done()
 		for data := range input {
 			fmt.Printf("Получено: %v \n", data)
+			log.Printf("Получено: %v \n", data)
 		}
 	}()
 	wg.Wait()

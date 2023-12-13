@@ -2,7 +2,7 @@ package pipeline
 
 import (
 	"bufio"
-	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -17,14 +17,17 @@ func Source(done chan interface{}, output chan<- int) {
 		scanner.Scan()
 		data = scanner.Text()
 		if strings.EqualFold(data, "exit") {
-			fmt.Println("Программа завершила работу!")
+			//fmt.Println("Программа завершила работу!")
+			log.Println("Source: Завершил работу!")
 			return
 		}
 		i, err := strconv.Atoi(data)
 		if err != nil {
-			fmt.Println("Программа обрабатывает только целые числа!")
+			//fmt.Println("Программа обрабатывает только целые числа!")
+			log.Println("Source: Программа обрабатывает только целые числа!")
 			continue
 		}
+		log.Printf("Source: Передача %v", i)
 		output <- i
 	}
 }
