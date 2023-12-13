@@ -3,9 +3,7 @@ RUN mkdir -p /go/src/PJ-02
 RUN mkdir -p /go/src/PJ-02/buffer
 RUN mkdir -p /go/src/PJ-02/pipeline
 WORKDIR /go/src/PJ-02
-COPY main.go go.mod filters.go ./
-COPY buffer/* ./buffer
-COPY pipeline/* ./pipeline
+COPY . ./
 RUN go install .
 
 FROM alpine:latest
