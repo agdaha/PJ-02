@@ -1,7 +1,4 @@
 FROM golang
-RUN mkdir -p /go/src/PJ-02
-RUN mkdir -p /go/src/PJ-02/buffer
-RUN mkdir -p /go/src/PJ-02/pipeline
 WORKDIR /go/src/PJ-02
 COPY . ./
 RUN go install .
